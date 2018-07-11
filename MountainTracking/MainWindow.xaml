@@ -1,0 +1,114 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:System="clr-namespace:System;assembly=mscorlib"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="583.517" Width="1225">
+
+    <Window.Resources>
+        <System:String x:Key="NumbersCompleted">0</System:String>
+        <System:String x:Key="NumbersCompletedPercent">0</System:String>
+    </Window.Resources>
+    
+    <Grid>
+        <TabControl HorizontalAlignment="Left" Height="543" VerticalAlignment="Top" Width="1211">
+            <TabItem Header="Mount Battle" Height="35" Width="300" FontSize="20" FontFamily="Impact" Foreground="DarkRed" Margin="4,-1,-4,1">
+                <Grid Margin="0,10,0,0">
+                    <TabControl Background="SlateGray" VerticalAlignment="Top" Height="543" Margin="0,-12,0,-41" HorizontalAlignment="Left" Width="1204">
+                        <TabItem Header="Numbers: 1-22" Height="35" Width="300" FontSize="20" FontFamily="Arial" Margin="-2,0,0,0">
+                            <Grid Name="NumbersGrid" Margin="0,35,0,60" Background="DarkRed">
+                                <Button x:Name="Numbers1" Content="1. Find PI to the Nth Digit" Height="30" Width="586" Margin="10,10,602,365" Click="Numbers1_Click"/>
+                                <Button x:Name="Numbers2" Content="2. Find e to the Nth Digit" Height="30" Width="586" Margin="602,10,10,365" />
+                                <Button x:Name="Numbers3" Content="3" Height="30" Width="586" Margin="10,45,602,330" />
+                                <Button x:Name="Numbers4" Content="4" Height="30" Width="586" Margin="602,45,10,330" />
+                                <Button x:Name="Numbers5" Content="5" Height="30" Width="586" Margin="10,80,602,295" />
+                                <Button x:Name="Numbers6" Content="6" Height="30" Width="586" Margin="602,80,10,295" />
+                                <Button x:Name="Numbers7" Content="7" Height="30" Width="586" Margin="10,115,602,260" />
+                                <Button x:Name="Numbers8" Content="8" Height="30" Width="586" Margin="602,115,10,260" />
+                                <Button x:Name="Numbers9" Content="9" Height="30" Width="586" Margin="10,150,602,225" />
+                                <Button x:Name="Numbers10" Content="10" Height="30" Width="586" Margin="602,150,10,225" />
+                                <Button x:Name="Numbers11" Content="11" Height="30" Width="586" Margin="10,185,602,190" />
+                                <Button x:Name="Numbers12" Content="12" Height="30" Width="586" Margin="602,185,10,190" />
+                                <Button x:Name="Numbers13" Content="13" Height="30" Width="586" Margin="10,220,602,155" />
+                                <Button x:Name="Numbers14" Content="14" Height="30" Width="586" Margin="602,220,10,155" />
+                                <Button x:Name="Numbers15" Content="15" Height="30" Width="586" Margin="10,255,602,120" />
+                                <Button x:Name="Numbers16" Content="16" Height="30" Width="586" Margin="602,255,10,120" />
+                                <Button x:Name="Numbers17" Content="17" Height="30" Width="586" Margin="10,290,602,85" />
+                                <Button x:Name="Numbers18" Content="18" Height="30" Width="586" Margin="602,290,10,85" />
+                                <Button x:Name="Numbers19" Content="19" Height="30" Width="586" Margin="10,325,602,50" />
+                                <Button x:Name="Numbers20" Content="20" Height="30" Width="586" Margin="602,325,10,50" />
+                                <Button x:Name="Numbers21" Content="21" Height="30" Width="586" Margin="10,360,602,15" />
+                                <Button x:Name="Numbers22" Content="22" Height="30" Width="586" Margin="602,360,10,15" />
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="Classic Algorithms: 23-26" Height="35" Width="300" FontSize="20" FontFamily="Arial" Margin="-2,0,0,-0">
+                            <Grid Background="DarkRed">
+                                <Button x:Name="Numbers23" Content="23" Height="30" Width="586" Margin="10,10,602,365" />
+                                <Button x:Name="Numbers24" Content="24" Height="30" Width="586" Margin="602,10,10,365" />
+                                <Button x:Name="Numbers25" Content="25" Height="30" Width="586" Margin="10,45,602,330" />
+                                <Button x:Name="Numbers26" Content="26" Height="30" Width="586" Margin="602,45,10,330" />
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="Graph: 27-31" Height="35" Width="300" FontSize="20" FontFamily="Arial" Margin="-2,0,0,-0">
+
+                        </TabItem>
+                        <TabItem Header="Classic Algorithms 23-26" Height="35" Width="300" FontSize="20" FontFamily="Arial" Margin="-2,0,0,-0">
+
+                        </TabItem>
+                    </TabControl>
+                    <Button Name="ButtonNext" Content="Next Page" HorizontalAlignment="Left" Margin="1055,31,0,0" VerticalAlignment="Top" Width="140"
+                            FontFamily="Arial"/>
+                    <Button x:Name="ButtonPrevious" Content="Previous Page" HorizontalAlignment="Left" Margin="910,31,0,0" VerticalAlignment="Top" Width="140"
+                            FontFamily="Arial"/>
+                    <Label Name="ProgressNumbersLabel" HorizontalAlignment="Left" Margin="10,26,0,0" VerticalAlignment="Top">
+                        <TextBlock>
+                            <Run Text="{DynamicResource NumbersCompleted}"/>
+                            <Run Text="/22"/>
+                            <Run Text="                                             "/>
+                            <Run Text="{DynamicResource NumbersCompletedPercent}"/>
+                            <Run Text="/100%"/>
+                        </TextBlock>
+                    </Label>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Completed" Margin="4,0,-4,0" Height="35" Width="300" FontSize="20" FontFamily="Sylfaen" FontStyle="Italic" Foreground="Navy">
+                <Grid Margin="0,10,0,0">
+                    <TabControl Background="Aquamarine" VerticalAlignment="Top" Height="543" Margin="0,-12,0,-41" HorizontalAlignment="Left" Width="1204">
+                        <TabItem Header="Numbers: 1-22" Height="35" Width="300" FontSize="20" FontFamily="Arial" Margin="-2,0,0,0">
+                            <Grid Margin="0,35,0,60" Background="Azure">
+                                <Button x:Name="CNumbers1" Content="1. Find PI to the Nth Digit" Height="30" Width="586" Margin="10,10,602,365" Click="Numbers1_Click"
+                                        Visibility="Hidden"/>
+                                <Button x:Name="CNumbers2" Content="2. Find e to the Nth Digit" Height="30" Width="586" Margin="602,10,10,365" Visibility="Hidden"/>
+                                <Button x:Name="CNumbers3" Content="3" Height="30" Width="586" Margin="10,45,602,330" Visibility="Hidden"/>
+                                <Button x:Name="CNumbers4" Content="4" Height="30" Width="586" Margin="602,45,10,330" Visibility="Hidden"/>
+                                <Button x:Name="CNumbers5" Content="5" Height="30" Width="586" Margin="10,80,602,295" Visibility="Hidden"/>
+                                <Button x:Name="CNumbers6" Content="6" Height="30" Width="586" Margin="602,80,10,295" Visibility="Hidden"/>
+                                <Button x:Name="CNumbers7" Content="7" Height="30" Width="586" Margin="10,115,602,260" Visibility="Hidden"/>
+                                <Button x:Name="CNumbers8" Content="8" Height="30" Width="586" Margin="602,115,10,260" Visibility="Hidden"/>
+                                <Button x:Name="CNumbers9" Content="9" Height="30" Width="586" Margin="10,150,602,225" Visibility="Hidden"/>
+                                <Button x:Name="CNumbers10" Content="10" Height="30" Width="586" Margin="602,150,10,225" Visibility="Hidden"/>
+                                <Button x:Name="CNumbers11" Content="11" Height="30" Width="586" Margin="10,185,602,190" Visibility="Hidden"/>
+                                <Button x:Name="CNumbers12" Content="12" Height="30" Width="586" Margin="602,185,10,190" Visibility="Hidden"/>
+                                <Button x:Name="CNumbers13" Content="13" Height="30" Width="586" Margin="10,220,602,155" Visibility="Hidden"/>
+                                <Button x:Name="CNumbers14" Content="14" Height="30" Width="586" Margin="602,220,10,155" Visibility="Hidden"/>
+                                <Button x:Name="CNumbers15" Content="15" Height="30" Width="586" Margin="10,255,602,120" Visibility="Hidden"/>
+                                <Button x:Name="CNumbers16" Content="16" Height="30" Width="586" Margin="602,255,10,120" Visibility="Hidden"/>
+                                <Button x:Name="CNumbers17" Content="17" Height="30" Width="586" Margin="10,290,602,85" Visibility="Hidden"/>
+                                <Button x:Name="CNumbers18" Content="18" Height="30" Width="586" Margin="602,290,10,85" Visibility="Hidden"/>
+                                <Button x:Name="CNumbers19" Content="19" Height="30" Width="586" Margin="10,325,602,50" Visibility="Hidden"/>
+                                <Button x:Name="CNumbers20" Content="20" Height="30" Width="586" Margin="602,325,10,50" Visibility="Hidden"/>
+                                <Button x:Name="CNumbers21" Content="21" Height="30" Width="586" Margin="10,360,602,15" Visibility="Hidden"/>
+                                <Button x:Name="CNumbers22" Content="22" Height="30" Width="586" Margin="602,360,10,15" Visibility="Hidden"/>
+                            </Grid>
+                        </TabItem>
+                    </TabControl>
+                </Grid>
+            </TabItem>
+
+        </TabControl>
+    </Grid>
+</Window>
