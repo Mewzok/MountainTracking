@@ -24,11 +24,13 @@ namespace WpfApp1
     public partial class MainWindow : Window
     {
         public int totalNum = 0;
+        List<System.Windows.Controls.Button> btnList = new List<System.Windows.Controls.Button> {};
 
         public MainWindow()
         {
             InitializeComponent();
             SetTotalNum();
+            InitializeButtonList();
             DeserializeSettings();
         }
 
@@ -51,6 +53,34 @@ namespace WpfApp1
 
             totalNum = Convert.ToInt32(reader.ReadToEnd());
             reader.Close();
+        }
+
+        private void InitializeButtonList()
+        {
+            #region ButtonAdding
+                btnList.Add(Numbers1);
+                btnList.Add(Numbers2);
+                btnList.Add(Numbers3);
+                btnList.Add(Numbers4);
+                btnList.Add(Numbers5);
+                btnList.Add(Numbers6);
+                btnList.Add(Numbers7);
+                btnList.Add(Numbers8);
+                btnList.Add(Numbers9);
+                btnList.Add(Numbers10);
+                btnList.Add(Numbers11);
+                btnList.Add(Numbers12);
+                btnList.Add(Numbers13);
+                btnList.Add(Numbers14);
+                btnList.Add(Numbers15);
+                btnList.Add(Numbers16);
+                btnList.Add(Numbers17);
+                btnList.Add(Numbers18);
+                btnList.Add(Numbers19);
+                btnList.Add(Numbers20);
+                btnList.Add(Numbers21);
+                btnList.Add(Numbers22);
+            #endregion
         }
 
         // Button was clicked
@@ -204,22 +234,13 @@ namespace WpfApp1
             {
                 for (int i = 1; i <= 22; i++)
                 {
+                    try
+                    {
                     TextReader reader = new StreamReader(AppDomain.CurrentDomain.BaseDirectory + "\\projectsaves\\buttoninfo\\button\\numbers" + i + ".xml");
                     object obj = deserializer.Deserialize(reader);
-
-                    foreach(System.Windows.Controls.Button b in this.NumbersGrid.Children)
-                        {
-                            try
-                            {
-                                Numbers1 = (System.Windows.Controls.Button)obj;
-                            }
-                            catch
-                            {
-
-                            }
-                        }
-
-
+                    btnList<i> = (System.Windows.Controls.Button)obj;
+                    }
+                    catch{}
                 }
             }
         }
