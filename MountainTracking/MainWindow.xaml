@@ -12,10 +12,11 @@
         <System:String x:Key="NumbersCompleted">0</System:String>
         <System:String x:Key="NumbersCompletedPercent">0</System:String>
     </Window.Resources>
-    
+
     <Grid>
-        <TabControl HorizontalAlignment="Left" Height="543" VerticalAlignment="Top" Width="1211">
-            <TabItem Header="Mountain" Height="35" Width="300" FontSize="20" FontFamily="Impact" Foreground="DarkRed" Margin="4,-1,-4,1">
+        <TabControl Height="543" VerticalAlignment="Top" Width="1210">
+            <TabItem Header="Mountain" Height="35" Width="593
+                     " FontSize="20" FontFamily="Impact" Foreground="DarkRed" Margin="10,0,-10,0">
                 <Grid Margin="0,10,0,0">
                     <TabControl Background="SlateGray" VerticalAlignment="Top" Height="543" Margin="0,-12,0,-41" HorizontalAlignment="Left" Width="1204">
                         <TabItem Header="Numbers: 1-22" Height="35" Width="300" FontSize="20" FontFamily="Arial" Margin="-2,0,0,0">
@@ -75,12 +76,12 @@
                 </Grid>
             </TabItem>
 
-            <TabItem Header="Completed" Margin="4,0,-4,0" Height="35" Width="300" FontSize="20" FontFamily="Sylfaen" FontStyle="Italic" Foreground="Navy">
+            <TabItem Header="Completed" Height="35" Width="593" FontSize="20" FontFamily="Sylfaen" FontStyle="Italic" Foreground="Navy" Margin="14,0,-14,0">
                 <Grid Margin="0,10,0,0">
                     <TabControl Background="Aquamarine" VerticalAlignment="Top" Height="543" Margin="0,-12,0,-41" HorizontalAlignment="Left" Width="1204">
                         <TabItem Header="Numbers: 1-22" Height="35" Width="300" FontSize="20" FontFamily="Arial" Margin="-2,0,0,0">
                             <Grid Margin="0,35,0,60" Background="Azure">
-                                // Click="Numbers1_Click" used to be in CNumbers1 
+                                <!-- Click="Numbers1_Click" used to be in CNumbers1 -->
                                 <Button x:Name="CNumbers1" Content="1. Find PI to the Nth Digit" Height="30" Width="586" Margin="10,10,602,365" Visibility="Hidden"/>
                                 <Button x:Name="CNumbers2" Content="2. Find e to the Nth Digit" Height="30" Width="586" Margin="602,10,10,365" Visibility="Hidden"/>
                                 <Button x:Name="CNumbers3" Content="3" Height="30" Width="586" Margin="10,45,602,330" Visibility="Hidden"/>
@@ -106,18 +107,18 @@
                             </Grid>
                         </TabItem>
                     </TabControl>
-                        <TabItem Header="Classic Algorithms: 23-26" Height="35" Width="300" FontSize="20" FontFamily="Arial" Margin="-2,0,0,-0">
-                            <Grid Margin="0,35,0,60" Background="Azure">
-                                <Button x:Name="cCA1" Content="23" Height="30" Width="586" Visibility="Hidden"/>
-                                <Button x:Name="cCA2" Content="24" Height="30" Width="586" Visibility="Hidden"/>
-                                <Button x:Name="cCA3" Content="25" Height="30" Width="586" Margin="10,45,602,330" Visibility="Hidden"/>
-                                <Button x:Name="cCA4" Content="26" Height="30" Width="586" Margin="602,45,10,330" Visibility="Hidden"/>
-                            </Grid>
-                        </TabItem>
-                        <TabItem Header="Graph: 27-31" Height="35" Width="300" FontSize="20" FontFamily="Arial" Margin="-2,0,0,-0">
+                    <TabItem Header="Classic Algorithms: 23-26" Height="35" Width="300" FontSize="20" FontFamily="Arial" Margin="-2,0,0,-0">
+                        <Grid Margin="0,35,0,60" Background="Azure">
+                            <Button x:Name="cCA1" Content="23" Height="30" Width="586" Visibility="Hidden"/>
+                            <Button x:Name="cCA2" Content="24" Height="30" Width="586" Visibility="Hidden"/>
+                            <Button x:Name="cCA3" Content="25" Height="30" Width="586" Margin="10,45,602,330" Visibility="Hidden"/>
+                            <Button x:Name="cCA4" Content="26" Height="30" Width="586" Margin="602,45,10,330" Visibility="Hidden"/>
+                        </Grid>
+                    </TabItem>
+                    <TabItem Header="Graph: 27-31" Height="35" Width="300" FontSize="20" FontFamily="Arial" Margin="-2,0,0,-0">
+                    </TabItem>
                 </Grid>
             </TabItem>
-
         </TabControl>
     </Grid>
 </Window>

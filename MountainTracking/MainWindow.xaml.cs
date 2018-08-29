@@ -1,18 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Windows.Forms;
 using System.Xml.Serialization;
 using System.IO;
 
@@ -25,13 +13,63 @@ namespace WpfApp1
     {
         public int totalNum = 0;
         List<System.Windows.Controls.Button> btnList = new List<System.Windows.Controls.Button> {};
+        List<ProjectButton> numbersBL = new List<ProjectButton>( new ProjectButton[22] );
 
         public MainWindow()
         {
+            MessageBox.Show(numbersBL[22].filePath);
+
             InitializeComponent();
-            SetTotalNum();
-            InitializeButtonList();
-            DeserializeSettings();
+
+            initButtonList();
+            initButtonSettings();
+            //SetTotalNum();
+            //InitializeButtonList();
+            //DeserializeSettings();
+        }
+
+        private void initButtonList()
+        {
+            string btnSett;
+            DirectoryInfo dir = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
+            FileInfo btnFile = new FileInfo(AppDomain.CurrentDomain.BaseDirectory + "\\projectsaves");
+            FileInfo file = new FileInfo(AppDomain.CurrentDomain.BaseDirectory + "\\projectsaves\\buttonsettings.txt");
+
+            if (!file.Exists)
+            {
+                File.Create(file.ToString()).Close();
+
+                TextWriter writer = new StreamWriter(file.ToString());
+                
+                for(int i = 0; i < 22; i++)
+                {
+                    writer.Write("Project" + (i + 1) + "\nFilepath: " + btnFile + (i + 1) + ".txt\nCompleted: false\n\n");
+                }
+                writer.Close();
+            }
+
+            TextReader reader = new StreamReader(file.ToString());
+            btnSett = reader.ReadToEnd();
+            reader.Close();
+
+            int x = 1;
+
+            string tests = "no";
+
+            MessageBox.Show(numbersBL.Count.ToString());
+
+            foreach(ProjectButton p in numbersBL)
+            {
+                p.filePath = btnSett.Substring(btnSett.IndexOf("Project" + x) + x + 17);
+                MessageBox.Show(p.filePath);
+            }
+
+            MessageBox.Show(tests);
+        }
+
+        private void initButtonSettings()
+        {
+
         }
 
         // Keep track of how many buttons will have to be changed at startup
@@ -45,7 +83,7 @@ namespace WpfApp1
                 File.Create(file.ToString());
 
                 TextWriter writer = new StreamWriter(file.ToString());
-                writer.Write(0);
+                writer.Write("0");
                 writer.Close();
             }
 
@@ -107,7 +145,7 @@ namespace WpfApp1
                 tempFile = tempFile.Parent;
 
                 // Opens the file dialog and sets default and filter
-                OpenFileDialog ofd = new OpenFileDialog
+                System.Windows.Forms.OpenFileDialog ofd = new System.Windows.Forms.OpenFileDialog
                 {
                     DefaultExt = ".txt",
                     Filter = "Text documents (.txt)|*.txt|C# File (.cs)|*.cs|All Files (.*)|*.*",
@@ -145,7 +183,7 @@ namespace WpfApp1
         }
 
         // Serialize the file that contains the user's code
-        private void SerializeFile(OpenFileDialog openFD, FileInfo file, DirectoryInfo dir, String buttonName)
+        private void SerializeFile(System.Windows.Forms.OpenFileDialog openFD, FileInfo file, DirectoryInfo dir, String buttonName)
         {
             try
             {
@@ -236,9 +274,9 @@ namespace WpfApp1
                 {
                     try
                     {
-                    TextReader reader = new StreamReader(AppDomain.CurrentDomain.BaseDirectory + "\\projectsaves\\buttoninfo\\button\\numbers" + i + ".xml");
-                    object obj = deserializer.Deserialize(reader);
-                    btnList<i> = (System.Windows.Controls.Button)obj;
+                        TextReader reader = new StreamReader(AppDomain.CurrentDomain.BaseDirectory + "\\projectsaves\\buttoninfo\\button\\numbers" + i + ".xml");
+                        object obj = deserializer.Deserialize(reader);
+                        btnList[i] = (System.Windows.Controls.Button)obj;
                     }
                     catch{}
                 }
